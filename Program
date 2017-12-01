@@ -1,0 +1,270 @@
+import random
+import time
+import sys
+#from enchant.checker import SpellChecker
+
+def xd(choice, num, repeat, index):
+    repeat[index] += 1
+
+    if check_repeat(repeat, index):
+        print_repeat(num)
+
+    if choice == 'a':
+        if num == 1:
+            print("Getting a grade in the excellent range? Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("A perfect score in the class? Wouldn't that be wonderful. Magic 8-Ball says...")
+        else:
+            print("Hmmm... getting an 'A'? That's tough, Magic 8-Ball says...")
+    elif choice == 'well':
+        if num == 1:
+            print("Will you do good? Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("Getting good grades? Magic 8-Ball says...")
+        else:
+            print("Depends on you participation my friend! Magic 8-Ball says...")
+    elif choice == 'hard':
+        if num == 1:
+            print("If you have Carmona... Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("It might be just unlucky... Magic 8-Ball says...")
+        else:
+            print("STUDY!!!! Magic 8-Ball says...")
+    elif choice == 'easy':
+        if num == 1:
+            print("How's your teacher? Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("Getting good grades? Magic 8-Ball says...")
+        else:
+            print("Depends on your behavior my friend! Magic 8-Ball says...")
+
+    elif choice == 'lol':
+        if num == 1:
+            print("Ooooo, crushes? Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("Aaaaa your love life. Magic 8-Ball says...")
+        else:
+            print("Oooooooo, it's gonna be tough, Magic 8-Ball says...")
+    elif choice == 'haha':
+        if num == 1:
+            print("That would be a good future. Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("You two would be cute together... Magic 8-Ball says...")
+        else:
+            print("All depends on you! Magic 8-Ball says...")
+    elif choice == 'hehe':
+        if num == 1:
+            print("I LOVE BABIESS... Magic 8-Ball replies with a...")
+            time.sleep(2)
+            print("You are going to have " + str(random.randrange(1, 100)) + " of them!")
+            time.sleep(2)
+            main()
+        elif num == 2:
+            print("This is just gonna be about how many there are... Magic 8-Ball says...")
+            time.sleep(2)
+            print("You are going to have " + str(random.randrange(1, 100)) + " of them!")
+            time.sleep(2)
+            main()
+        else:
+            print("Work hard to get them!!!! Magic 8-Ball says...")
+            time.sleep(2)
+            print("You are going to have " + str(random.randrange(1, 100)) + " of them!")
+            time.sleep(2)
+            main()
+    elif choice == 'hoho':
+        if num == 1:
+            print("That's kinda on the hinge... Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("This would determine your future... Magic 8-Ball says...")
+        else:
+            print("Depends on you my friend! Magic 8-Ball says...")
+
+
+    elif choice == 'wow':
+        if num == 1:
+            print("It's all about that money! Magic 8-Ball says...")
+        elif num == 2:
+            print("This is really important, huh... Magic 8-Ball says...")
+        else:
+            print("A lot of people ask me this... Magic 8-Ball says...")
+    elif choice == 'wa':
+        if num == 1:
+            print("I want to be rich... Magic 8-Ball replies with....")
+            time.sleep(2)
+            print("This much: $" +str(random.randrange(1000, 200000)))
+            time.sleep(1.25)
+            main()
+        elif num == 2:
+            print("Work hard my friend! Magic 8-Ball replies with....")
+            time.sleep(2)
+            print("This much: $" +str(random.randrange(1000, 100000000000)))
+            time.sleep(1.25)
+            main()
+        else:
+            print("Money is everything! Magic 8-Ball replies with....")
+            time.sleep(2)
+            print("This much: $" +str(random.randrange(1, 1000000000000000000000000000000000000000000000000000000)))
+            time.sleep(1.25)
+            main()
+    elif choice == 'woah':
+        if num == 1:
+            print("Wealth is everything these days... Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("Why is money so important to you... Magic 8-Ball replies with a...")
+        else:
+            print("Money money money... Magic 8-Ball replies with a...")
+    elif choice == 'we':
+        if num == 1:
+            print("That would be nice to have... Magic 8-Ball replies with a...")
+        elif num == 2:
+            print("Cool stuff... Magic 8-Ball replies with a...")
+        else:
+            print("Don't you think that's a little too much? Magic 8-Ball replies with a...")
+
+
+def getA(response, num, repeat):
+    if 'will' in response and 'i' in response and 'get' in response and ("an 'a'" in response or 'an a' in response or 'a' in response):
+        xd('a', num, repeat, 0)
+
+    elif 'will' in response and 'i' in response and 'do' in response and ("good" in response or 'well' in response):
+        xd('well', num, repeat, 1)
+
+    elif 'this' in response and 'class' in response and ("hard" in response or "difficult" in response):
+        xd('hard', num, repeat, 2)
+
+    elif 'this' in response and 'class' in response and "easy" in response:
+        xd('easy', num, repeat, 3)
+
+    elif ('are you sure' in response or 'really' in response):
+        print("UH YEAH I'M THE MAGIC 8-BALL I KNOW EVERYTHING MY BOI")
+        time.sleep(2)
+        main()
+
+
+def getLove(response, num, repeat):
+    if 'does' in response and 'like' in response and 'me' in response:
+        xd('lol', num, repeat, 0)
+
+    elif 'will' in response and 'i' in response and 'marry' in response:
+        xd('haha', num, repeat, 1)
+
+    elif 'have' in response and ('babies' in response or "children" in response or "kids" in response) and ("are" in response or "will" in response):
+        xd('hehe', num, repeat, 2)
+
+    elif 'does' in response and 'love' in response and "me" in response:
+        xd('hoho', num, repeat, 3)
+
+
+def getRich(response, num, repeat):
+    if ('will' in response or 'am' in response) and 'i' in response and ('going to' in response or 'gonna' in response or 'be' in response) and 'rich' in response:
+        xd('wow', num, repeat, 0)
+
+    elif 'am' in response and 'i' in response and ('going to' in response or 'gonna' in response) and ('have' in response or 'earn' in response) and "a lot of money" in response:
+        xd('woah', num, repeat, 1)
+
+    elif 'how' in response and ('money' in response or "dollar" in response) and ("much" in response or "many" in response) and 'will' in response and ('earn' in response or 'make' in response):
+        xd('wa', num, repeat, 2)
+
+    elif 'am' in response and 'i' in response and ('going to' in response or 'gonna' in response) and ('own' in response or 'have' in response):
+        xd('we', num, repeat, 3)
+
+def check_repeat(repeat, index):
+    if repeat[index] > 1:
+        return True
+    else:
+        return False
+
+def print_repeat(num):
+    if num == 1:
+        print("Didn't you ask that question already? Anyhow...")
+        time.sleep(1.75)
+    elif num == 2:
+        print("Again man? C'mon....")
+        time.sleep(1.75)
+    elif num == 3:
+        print("Asking the same question again? Alrighty...")
+        time.sleep(1.75)
+
+def ai(response, repeat):
+    num = int(random.random() * 3) + 1
+    getA(response, num, repeat)
+    getLove(response, num, repeat)
+    getRich(response, num, repeat)
+
+
+#def spell_check(response):
+    #count = 0
+
+    #chkr = SpellChecker("en_US")
+    #chkr.set_text(response)
+    #for err in chkr:
+        #if err:
+            #count += 1
+
+    #return count
+
+def check_input():
+  while True:
+      response = raw_input().lower()
+
+      if response == '':
+          print("You need to ask a question!")
+      elif '?' not in response:
+          print("Every question ends with a question mark!")
+      elif response == '?':
+          print("A question can't just be a question mark!")
+      elif response == 'qwertyuiopasdfghjklzxcvbnm?':
+          print("Welcome master.")
+          time.sleep(1)
+          print("Bye master.")
+          sys.exit()
+      #elif spell_check(response) == 1:
+          #print("I didn't understand that. Try again:")
+      #elif spell_check(response) == 2:
+          #print("Can you please spell correctly...")
+      #elif spell_check(response) == 3:
+          #print("Get out you can't spell")
+          #sys.exit()
+      else:
+          return response
+
+def ask():
+    dice = random.randrange(1,4)
+    if dice == 1:
+        print("Yes!")
+    elif dice == 2:
+        print("No!")
+    else:
+        print("Ehh, maybe...")
+
+def main():
+    repeat = [0] * 7
+
+    answer = True
+    while answer:
+        print("\nAsk me a yes or no question and await your response: ")
+
+        ai(check_input(), repeat)
+        ask()
+
+
+
+petition = raw_input("Do you like food?")
+
+if petition in ["hella yes", "fk yea", "hell ya", "heck ya", "fk ya", "uh ok",
+                "ya man", "ye dude", "Yes", "yes", "yess", "yesss", "yessss", "yesssss",
+                "yessssss", "yesssssss", "yea", "Yea", "yeaa", "yeaaa", "yeaaaa", "yeaaaaa",
+                "sure", "i guess", "ok", "ye", "ya", "yep", "yepp", "yeppp", "hell yeah", "heck yeah",
+                "fk yeah", "uh sure", "lol ok", "lel ok", "lul ok", "lul sure", "lol sure",
+                "lol ok sure", "lel alright", "lol fine"]:
+    print("Ok that's the right answer")
+    time.sleep(1.25)
+    print("I'm the Magic 8 Ball!")
+    time.sleep(1)
+
+    main()
+else:
+    print("You don't deserve my program")
+    time.sleep(1)
+    print("ex dee")
+    sys.exit()
